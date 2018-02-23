@@ -30,6 +30,11 @@ type Response struct {
 	StatusCode int
 	Body       string
 	Headers    []KeyValuePair
+	Request    []Requ
+}
+
+type Requ struct {
+	Url        string
 }
 
 type Folder struct {
