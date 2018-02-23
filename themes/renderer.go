@@ -26,6 +26,7 @@ func (r *Renderer) getTemplateHelpers() template.FuncMap {
 	return template.FuncMap{
 		"curlSnippet":  curlSnippet,
 		"findResponse": helperFindResponse,
+		"findRequest": helperFindRequest,
 		"hasContent":   helperHasContent,
 		"httpSnippet":  helperHttpSnippet,
 		"indentJSON":   helperIndentJSON,
