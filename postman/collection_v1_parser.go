@@ -151,10 +151,21 @@ func (p *CollectionV1Parser) buildRequestResponses(v1 requestV1, options Builder
 			StatusCode: res.ResponseCode.Code,
 			Body:       res.Text,
 			Headers:    p.buildResponseHeaders(res, options),
+			Request:	p.buildMoje(res, options),
 		})
 	}
 
 	return responses
+}
+
+func (p *CollectionV1Parser) buildMoje(v1 responseV1, options BuilderOptions) []KeyValuePair {
+	headers := make([]KeyValuePair, 0)
+	for _, header := range v1.Headers {
+		headers = append(headers, KeyValuePair{
+			Url:        header.Url,
+		})
+	}
+	return headers
 }
 
 func (p *CollectionV1Parser) buildResponseHeaders(v1 responseV1, options BuilderOptions) []KeyValuePair {
